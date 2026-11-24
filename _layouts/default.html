@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'zh-CN' }}">
+{% include head.html %}
+<body>
+  <header class="site-header shell">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img class="brand-icon" src="{{ '/assets/rolling-buffer.svg' | relative_url }}" width="20" height="20" alt="">Rolling Buffer
+    </a>
+    <nav aria-label="导航">
+      {% if page.is_home %}<a href="#archive">全部文章</a>{% else %}<a href="{{ '/' | relative_url }}#archive">全部文章</a>{% endif %}
+    </nav>
+  </header>
+  <main class="shell">
+    {{ content }}
+  </main>
+  <footer class="site-footer shell">
+    <span>Rolling Buffer / Learn, build, revisit.</span>
+    <a href="https://github.com/blueyo0/rolling-buffer-review/pulls" aria-label="在 GitHub 审稿">审稿</a>
+  </footer>
+</body>
+</html>
