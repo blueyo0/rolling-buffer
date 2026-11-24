@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-header">
+    <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: '%Y-%m-%d' }}</time>
+    <h1 class="p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+  </header>
+  {% assign first_para = content | strip | split: '</p>' | first %}
+  {% assign lead_start = first_para | slice: 0, 7 %}
+  {% assign lead_end = first_para | slice: -5, 5 %}
+  <div class="post-body e-content{% if lead_start == '<p><em>' and lead_end == '</em>' %} has-deck{% endif %}" itemprop="articleBody">
+    {{ content | replace: '<table>', '<div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><table>' | replace: '<table ', '<div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><table ' | replace: '</table>', '</table></div>' }}
+  </div>
+</article>
