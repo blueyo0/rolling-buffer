@@ -1,0 +1,19 @@
+.rb-assistant { --rb-edge: #9fb0c4; --rb-bg: #fff; --rb-text: #203349; --rb-accent: #174b93; }
+.rb-assistant [hidden] { display: none !important; }
+.rb-assistant button { font: inherit; cursor: pointer; }
+.rb-assistant button:disabled { opacity: .62; cursor: wait; }
+.rb-assistant-launch, .rb-assistant-send { border: 1px solid var(--rb-accent); border-radius: .65rem; background: var(--rb-accent); color: #fff; padding: .5rem .85rem; font-weight: 650; }
+.rb-assistant-launch { position: fixed; z-index: 20; right: max(.9rem, env(safe-area-inset-right)); bottom: max(.9rem, env(safe-area-inset-bottom)); box-shadow: 0 6px 20px #182e4933; }
+.rb-assistant-panel { position: fixed; z-index: 21; inset: auto max(.9rem, env(safe-area-inset-right)) calc(max(.9rem, env(safe-area-inset-bottom)) + 3.3rem) auto; margin: 0; box-sizing: border-box; width: min(27rem, calc(100% - 1.8rem)); max-height: min(72vh, 37rem); max-height: min(72dvh, 37rem); overflow: auto; overscroll-behavior: contain; border: 1px solid var(--rb-edge); border-radius: .85rem; background: var(--rb-bg); color: var(--rb-text); box-shadow: 0 12px 35px #182e4940; padding: .9rem; }
+.rb-assistant-panel header { display: flex; justify-content: space-between; align-items: center; gap: .6rem; margin: 0 0 .55rem; }
+.rb-assistant-panel h2 { margin: 0; font-size: 1rem; }
+.rb-assistant-close { border: 1px solid var(--rb-edge); border-radius: .45rem; background: transparent; color: inherit; min-width: 2.25rem; min-height: 2.25rem; line-height: 1; }
+.rb-assistant-form { display: grid; gap: .4rem; }
+.rb-assistant-form input[type=password], .rb-assistant-form textarea { background: var(--rb-bg); color: inherit; border: 1px solid var(--rb-edge); border-radius: .45rem; font: inherit; min-width: 0; padding: .38rem .5rem; }
+.rb-assistant-form textarea { resize: vertical; }
+.rb-assistant-form .rb-assistant-send { justify-self: start; }
+.rb-assistant-context, .rb-assistant-privacy, .rb-assistant-status { font-size: .82rem; }
+.rb-assistant-privacy, .rb-assistant-status { margin: .25rem 0; }
+.rb-assistant-status:empty { display: none; }
+.rb-assistant-answer { border-top: 1px solid var(--rb-edge); margin-top: .65rem; padding-top: .55rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.rb-assistant :focus-visible { outline: 2px solid var(--rb-accent); outline-offset: 2px; }
