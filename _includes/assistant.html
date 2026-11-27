@@ -1,0 +1,25 @@
+{% assign endpoint = site.rolling_buffer_assistant_endpoint | default: '' %}
+{% if endpoint != '' %}
+<link rel="stylesheet" href="{{ '/assets/assistant.css' | relative_url }}">
+<div class="rb-assistant" data-rb-endpoint="{{ endpoint | escape }}">
+  <button class="rb-assistant-launch" type="button" aria-controls="rb-assistant-panel" aria-expanded="false" hidden>问 Rolling Buffer</button>
+  <dialog class="rb-assistant-panel" id="rb-assistant-panel" aria-labelledby="rb-assistant-title">
+    <header>
+      <h2 id="rb-assistant-title">问 Rolling Buffer</h2>
+      <button type="button" class="rb-assistant-close" aria-label="关闭问答助手">×</button>
+    </header>
+    <form class="rb-assistant-form">
+      <label for="rb-assistant-code">试用访问码</label>
+      <input id="rb-assistant-code" type="password" autocomplete="off" spellcheck="false" maxlength="128" required>
+      <label for="rb-assistant-question">问题</label>
+      <textarea id="rb-assistant-question" rows="2" maxlength="1000" placeholder="例如：L1 和 shared memory 到底有什么区别？" required></textarea>
+      <label class="rb-assistant-context" hidden><input type="checkbox"> 附上本页公开文章摘录</label>
+      <p class="rb-assistant-privacy" id="rb-assistant-privacy">问题与所选摘录会发送给 DeepSeek。请勿输入隐私、内部资料或 API 密钥。</p>
+      <button class="rb-assistant-send" type="submit" aria-describedby="rb-assistant-privacy">发送</button>
+    </form>
+    <p class="rb-assistant-status" role="status"></p>
+    <div class="rb-assistant-answer" aria-live="polite" hidden></div>
+  </dialog>
+</div>
+<script defer src="{{ '/assets/assistant.js' | relative_url }}"></script>
+{% endif %}

@@ -1,0 +1,15 @@
+name = "rolling-buffer-assistant"
+main = "worker.mjs"
+compatibility_date = "2026-11-26"
+preview_urls = false
+
+[vars]
+BLOG_ORIGIN = "https://blueyo0.github.io"
+DAILY_LIMIT = "30"
+
+[durable_objects]
+bindings = [{ name = "QUOTA", class_name = "DailyQuota" }]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["DailyQuota"]
